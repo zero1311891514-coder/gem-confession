@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>For Gem 🤍</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            font-family: Arial, sans-serif;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            max-width: 320px;
+            transition: 0.5s;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            background: #ff6f91;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #ff3e6c;
+        }
+
+        #confession {
+            display: none;
+            margin-top: 20px;
+            font-size: 18px;
+            color: #444;
+            animation: fadeIn 2s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .heart {
+            position: absolute;
+            color: white;
+            font-size: 20px;
+            animation: float 5s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh); opacity: 1; }
+            100% { transform: translateY(-10vh); opacity: 0; }
+        }
+
+        iframe {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>Before anything...</h2>
+    <p>Click this first 🤍</p>
+    <button onclick="startExperience()">Start</button>
+
+    <div id="confession">
+        <!-- YOUR MESSAGE GOES HERE -->
+        I don’t know when it started,
+        but I really like you, Gem.
+        You make my days better without even trying.
+        I just wanted you to know that. 🤍
+    </div>
+</div>
+
+<iframe id="music"
+src="https://www.youtube.com/embed/tHJyXh5z1A8?autoplay=1&loop=1&playlist=tHJyXh5z1A8">
+</iframe>
+
+<script>
+function startExperience() {
+    document.getElementById("confession").style.display = "block";
+    document.getElementById("music").style.display = "block";
+}
+
+setInterval(() => {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "🤍";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 20 + 10 + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 5000);
+}, 300);
+</script>
+
+</body>
+</html>
